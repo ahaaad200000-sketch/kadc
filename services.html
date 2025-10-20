@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الخدمات - المركز التشخيصي المتطور ولاية كسلا</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script>
+  const pageName = 'services.html'; // ضع اسم الصفحة الحالي
+  const savedCode = localStorage.getItem(pageName);
+  if(savedCode){
+    document.open();
+    document.write(savedCode);
+    document.close();
+  }
+</script>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>المركز التشخيصي المتطور</h1>
+        <p>ولاية كسلا</p>
+      </div>
+      <nav class="navbar" id="navbar">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن المركز</a>
+        <a href="services.html" class="active">الخدمات</a>
+    <a href="gallery.html" class="active">المعرض</a>
+    <a href="kadc_loc.html" class="active">الموقع</a>
+        <a href="contact.html">اتصل بنا</a>
+      </nav>
+      <button class="menu-btn" id="menu-btn">☰</button>
+    </div>
+  </header>
+  <main class="container content">
+    <h2>خدماتنا</h2>
+    <ul class="services-list">
+      <li><strong>الأشعة القطعية  (Computed Tomography scan)</strong>— تصوير عالي الجودة مع أرشفة النتائج.</li>
+ <li><strong>الرنين المغناطيسي  (Magnetic Resonance Imaging)</strong>— تحت الانشاء.</li>
+      <li><strong>مناظير الجهاز الهضمي (Gastrointestinal Endoscopy)</strong> — مناظير تشخيصية وعلاجية.</li>
+  <li><strong>معمل الكيمياء النسيجية (Histochemistry laboratory)</strong> — فحوصات عامة وتخصصية.</li>
+  <li><strong>مناظير الاحياء الدقيقة (Microbiology laboratory)</strong> — فحوصات عامة وتخصصية.</li>
+ 
+<li><strong>الاستشارات الطبية (Medical consultation)</strong> — متابعة وتشخيص للحالات المزمنة والطارئة.</li>
+ <li><strong>التحاليل المخبرية (Laboratory tests)</strong> — فحوصات عامة وتخصصية.</li>
+    <li><strong>خدمات الطوارئ (Emergency services)</strong> — استقبال الحالات العاجلة وتقديم الدعم الطبي الأولي.</li>
+
+    </ul>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
+    </div>
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
