@@ -3,54 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خريطة المركز التشخيصي المتطور - ولاية كسلا</title>
+  <title>موقع المركز التشخيصي المتطور - ولاية كسلا</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/kadc.gif" alt="شعار المركز" class="logo-img">
+      <div class="logo-text">
+        <h1>المركز التشخيصي المتطور</h1>
+        <p>ولاية كسلا</p>
+      </div>
+      <button class="menu-btn" id="menu-btn">☰</button>
+    </div>
+    <nav class="navbar" id="navbar">
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">عن المركز</a>
+      <a href="services.html">الخدمات</a>
+      <a href="gallery.html">المعرض</a>
+      <a href="kadc_loc.html" class="active">الموقع</a>
+      <a href="contact.html">اتصل بنا</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h2>موقع المركز التشخيصي المتطور</h2>
+      <p>يمكنك معرفة موقع المركز بسهولة من خلال الخريطة أدناه للوصول إلينا بدقة وسرعة.</p>
+    </div>
+  </div>
 </section>
- <div class="map-container">
-  <iframe 
-    src="رابط_الخريطة" 
-    style="border:0; width:100%; height:400px;" 
-    allowfullscreen="" 
-    loading="lazy">
-  </iframe>
-</div>
 
+<section class="map-section container">
+  <h3>الخريطة التوضيحية</h3>
+  <div class="map-container">
+    <iframe 
+      src="رابط_الخريطة" 
+      style="border:0; width:100%; height:450px;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
 
-      <div class="logo">
-  <img src="assets/images/kadc.gif" alt="شعار المركز" class="logo-img">
-  <div class="logo-text">
-    <h1>المركز التشخيصي المتطور</h1>
-    <p>ولاية كسلا</p>
-   </div>
-       <nav class="navbar" id="navbar">
-        <a href="index.html">الرئيسية</a>
-        <a href="about.html">عن المركز</a>
-        <a href="services.html">الخدمات</a>
-        <a href="gallery.html">المعرض</a>
-        <a href="map.html" class="active">الموقع</a>
-        <a href="contact.html">اتصل بنا</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container" style="padding: 20px;">
-    <h2>موقع المركز على الخريطة</h2>
-    <p>يمكنك العثور علينا في ولاية كسلا:</p>
-    <div style="margin-top: 20px;">
-      <iframe 
-        src="https://www.google.com/maps?q=Kassala,Sudan&output=embed" 
-        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </main>
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
+  </div>
+</footer>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
-    </div>
-  </footer>
+<script src="assets/js/script.js"></script>
 
-  <script src="assets/js/script.js"></script>
+<script>
+  // سنة الديناميكية
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // قائمة الموبايل
+  const menuBtn = document.getElementById('menu-btn');
+  const navbar = document.getElementById('navbar');
+  menuBtn.addEventListener('click', () => {
+    navbar.classList.toggle('show');
+  });
+</script>
+
 </body>
 </html>
