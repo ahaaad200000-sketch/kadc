@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة الخدمات - لوحة التحكم</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .services-container { padding: 20px; }
+    .services-container h2 { color: #007bff; }
+    .service-form input, .service-form textarea, .service-form button {
+      display: block; width: 100%; margin-bottom: 10px; padding: 8px;
+      border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box;
+    }
+    .service-form button {
+      background: #007bff; color: white; border: none; cursor: pointer; transition: 0.3s;
+    }
+    .service-form button:hover { background: #0056b3; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 12px; text-align: right; }
+    .delete-btn { background: red; color: white; border: none; padding: 6px 10px; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body class="dashboard-body">
+  <header class="dashboard-header">
+    <h1>إدارة الخدمات</h1>
+    <button onclick="window.location.href='dashboard.html'" class="logout-btn">العودة للوحة التحكم</button>
+  </header>
+
+  <main class="dashboard-content">
+    <div class="services-container">
+      <h2>إضافة خدمة جديدة</h2>
+      <form class="service-form" id="serviceForm">
+        <input type="text" id="serviceName" placeholder="اسم الخدمة" required>
+        <textarea id="serviceDesc" placeholder="وصف الخدمة" rows="3" required></textarea>
+        <button type="submit">إضافة الخدمة</button>
+      </form>
+
+      <h2>الخدمات المسجلة</h2>
+      <table id="servicesTable">
+        <thead>
+          <tr>
+            <th>اسم الخدمة</th>
+            <th>الوصف</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('serviceForm');
+    const tableBody = document.querySelector('#servicesTable tbody');
+    let services = JSON.parse(localStorage.getItem('services')) || [];
+
+    function renderServices() {
+      tableBody.innerHTML = '';
+      services.forEach((service, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${service.name}</td>
+          <td>${service.desc}</td>
+          <td><button class="delete-btn" onclick="deleteService(${index})">حذف</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteService(index) {
+      services.splice(index, 1);
+      localStorage.setItem('services', JSON.stringify(services));
+      renderServices();
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('serviceName').value.trim();
+      const desc = document.getElementById('serviceDesc').value.trim();
+      services.push({ name, desc });
+      localStorage.setItem('services', JSON.stringify(services));
+      form.reset();
+      renderServices();
+    });
+
+    renderServices();
+  </script>
+</body>
+</html>

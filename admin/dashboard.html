@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - المركز التشخيصي المتطور</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+  <header class="dashboard-header">
+    <h1>لوحة التحكم</h1>
+    <button id="logoutBtn" class="logout-btn" onclick="window.location.href='login.html'">تسجيل الخروج</button>
+  </header>
+
+  <nav class="dashboard-sidebar">
+    <ul>
+      <li><a href="dashboard.html" class="active">الرئيسية</a></li>
+      <li><a href="services.html">الخدمات</a></li>
+      <li><a href="edit_page.html">محرر الصفحات</a></li>
+      <!-- لاحقًا يمكن إضافة التحاليل والمعرض -->
+    </ul>
+  </nav>
+
+  <main class="dashboard-content">
+    <h2>مرحبًا بك في لوحة التحكم</h2>
+    <p>يمكنك إدارة محتوى الموقع مثل الخدمات والصور والتحاليل وتعديل صفحات الموقع مباشرة.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

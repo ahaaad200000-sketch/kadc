@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - المركز التشخيصي المتطور</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+  <header class="dash-header">
+    <h1>لوحة التحكم</h1>
+    <button id="logoutBtn">🚪 تسجيل الخروج</button>
+  </header>
+
+  <main class="dash-content">
+    <h2>تعديل محتوى الصفحة الرئيسية</h2>
+
+    <label>عنوان رئيسي:</label>
+    <input type="text" id="mainTitle" value="رعاية تشخيصية بمعايير عالمية">
+
+    <label>نص المقدمة:</label>
+    <textarea id="mainText" rows="6">المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل...</textarea>
+
+    <button id="saveBtn">💾 حفظ التعديلات</button>
+    <p id="saveMsg"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

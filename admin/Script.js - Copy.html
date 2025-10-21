@@ -1,0 +1,43 @@
+document.addEventListener("DOMContentLoaded", function() {
+
+  const loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault(); // يمنع إعادة تحميل الصفحة
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "admin" && password === "1234") {
+        // حفظ حالة الدخول
+        localStorage.setItem("loggedIn", "true");
+        // الانتقال إلى لوحة التحكم
+        window.location.href = "dashboard.html";
+      } else {
+        const msg = document.getElementById("msg");
+        msg.textContent = "❌ اسم المستخدم أو كلمة المرور غير صحيحة";
+      }
+    });
+  }
+
+  // حماية لوحة التحكم
+  if (window.location.pathname.includes("dashboard.html")) {
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", function() {
+        localStorage.removeItem("loggedIn");
+        window.location.href = "login.html";
+
+alert("✅ السكربت شغال يا إبراهيم!");
+
+      });
+
+    }
+  }
+
+});
