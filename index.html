@@ -12,25 +12,27 @@
 <section class="announcement-bar">
   <div class="container">
     <p> 🔔 مع تمنياتنا للجميع بالصحة والعافية، المركز يقدم خدمة التأمين الصحي و قريبًا تشغيل جهاز الرنين المغناطيسي الجديد 🔔 </p>
-  </div>
+ 
+ </div>
+
 </section>
 
     /* ======= إضافات الساعة والتقويم ======= */
     .calendar-section {
       background: #fff;
       padding: 1.5rem;
-      margin: 2rem auto;
+      margin: 5rem auto;
       max-width: 900px;
       border-radius: 20px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-      text-align: center;
+      text-align: left;
     }
 
     .calendar-clock-wrapper {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
+justify-content: flex-end; /* لتحريك العناصر إلى أقصى اليمين أفقياً */      align-items: left;
+ margin: 0; /* إزالة أي هامش خارجي */
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
@@ -62,7 +64,7 @@
       width: 10px;
       height: 10px;
       background-color: #0077b6;
-      border-radius: 50%;
+      border-radius: 80%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -75,38 +77,17 @@
       border: 2px solid #0077b6;
       outline: none;
     }
-
-    /* ======= السلايدر ======= */
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      margin-top: 1rem;
-    }
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
-    }
-    .slides img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    @keyframes slide {
-      0%, 25% { transform: translateX(0); }
-      33%, 58% { transform: translateX(-100%); }
-      66%, 91% { transform: translateX(-200%); }
-      100% { transform: translateX(0); }
-    }
   </style>
 </head>
+
 <body>
+
 <!-- شريط الإعلان -->
 <section class="announcement-bar">
   <div class="container">
+
     <p> 🔔 مع تمنياتنا للجميع بالصحة والعافية، المركز يقدم خدمة التأمين الصحي و قريبًا تشغيل جهاز الرنين المغناطيسي الجديد 🔔 </p>
+
   </div>
 </section>
   <header class="header">
@@ -116,8 +97,13 @@
         <div class="logo-text">
           <h1>المركز التشخيصي المتطور</h1>
           <p>ولاية كسلا</p>
+
         </div>
-      </div>
+ 
+ <div class="hero-date" id="today-date"></div>
+
+ </div>
+
       <nav class="navbar" id="navbar">
         <a href="index.html" class="active">الرئيسية</a>
         <a href="about.html">عن المركز</a>
@@ -133,22 +119,108 @@
   <!-- الهيرو + السلايدر -->
   <section class="hero">
     <div class="hero-content">
+
+  <div class="hero-date" id="today-date"></div>
+
+  <div class="hero-logo-wrapper">
+   
+ <img src="assets/images/kadc.gif" alt="شعار المركز" class="hero-logo-img">
+
+</div>
   <!-- الساعة والتقويم -->
+
   <section class="calendar-section">
         <div class="calendar-clock-wrapper">
       <div class="clock" id="clock">
         <div class="hand hour" id="hour"></div>
         <div class="hand minute" id="minute"></div>
         <div class="hand second" id="second"></div>
-        <div class="center"></div>
-      </div>
+        <div class="left"></div>
+<span style="visibility: hidden;">◻️</span>
+<span style="visibility: hidden;">◻️</span>
+<span style="visibility: hidden;">◻️</span>
+<span style="visibility: hidden;">◻️</span>
+
+
+                                  المركز التشخيصي المتطور  
+
+</div>
+ </div>
+    </div>
+ </div>
+  </div>
+</div>
+ </div>
+  <div class="hero-content">
+    <h1>المركز التشخيصي المتطور       🩻         نحو رعاية صحية دقيقة ومتطورة              </h1>
+
+
+ <p>المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل بأحدث الأجهزة وأفضل الكوادر الطبية تحت ادارة رشيدة تسعي دوما للتطوير واهتمام متعاظم من السلطات المحلية والمركزية .</p>
+
+
    <section class="calendar-section">
 
-    <div class="date-display" id="today-date"></div>
+  </div>
 
-      <h2>رعاية تشخيصية بمعايير عالمية</h2>
-      <p>المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل بأحدث الأجهزة وأفضل الكوادر الطبية تحت ادارة رشيدة تسعي دوما للتطوير واهتمام بالغ من السلطات المحلية والمركزية .</p>
-    </div>
+<style>
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 255, 0.7), rgba(0,255,255,0.4)),
+              url('assets/images/hero-bg.jpg') center/cover no-repeat;
+  text-align: center;
+  color: blue;
+  overflow: hidden;
+}
+
+/* غلاف الشعار */
+.hero-logo-wrapper {
+  background: white;
+  border-radius: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+/* الشعار نفسه */
+.hero-logo-img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 100%;
+  background: white;
+}
+
+/* تحسين العرض في الموبايل */
+@media (max-width: 768px) {
+  .hero-logo-img {
+    width: 100px;
+    height: 100px;
+  }
+  .hero-logo-wrapper {
+    padding: 10px;
+  }
+}
+
+  .date-display {
+    text-align: left; /* يجعل النص داخل العنصر محاذياً لليسار */
+    float: left; /* يحرك العنصر نفسه إلى اليسار */
+    margin-left: 0; /* يزيل أي مسافة إضافية من اليسار */
+ margin-top: 200px; /* يضيف هامشاً علوياً بمقدار 10px (يمكنك تغيير القيمة حسب الحاجة) */
+ }
+</style>
+   
+</div>
+
+
  
 
   </div>
