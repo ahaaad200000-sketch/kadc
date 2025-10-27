@@ -613,4 +613,26 @@ style
     border-width: 3px;
   }
 }
+
+.map-responsive {
+  /* لتحديد موقع العناصر بشكل نسبي */
+  position: relative;
+  /* لإخفاء أي جزء زائد من iframe */
+  overflow: hidden;
+  /* عرض 100% ليتناسب مع عرض الحاوية الأب */
+  width: 100%;
+  /* يحافظ على نسبة العرض إلى الارتفاع (مثال 4:3) */
+  /* لحساب النسبة: (3 ÷ 4) * 100 = 75% */
+  padding-bottom: 75%; 
+}
+
+.map-responsive iframe {
+  /* لتحديد موقع iframe بشكل مطلق داخل الحاوية */
+  position: absolute;
+  /* للتأكد من أن iframe يملأ الحاوية بالكامل */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 stye
