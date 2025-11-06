@@ -5,18 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المركز التشخيصي المتطور - ولاية كسلا</title>
   <link rel="stylesheet" href="assets/css/style.css">
-<style>
-  <head>
-
-<!-- شريط الإعلان -->
-<section class="announcement-bar">
-  <div class="container">
-    <p> 🔔 مع تمنياتنا للجميع بالصحة والعافية، المركز يقدم خدمة التأمين الصحي و قريبًا تشغيل جهاز الرنين المغناطيسي الجديد 🔔 </p>
- 
- </div>
-
-</section>
-
+  <style>
     /* ======= إضافات الساعة والتقويم ======= */
     .calendar-section {
       background: #fff;
@@ -30,9 +19,9 @@
 
     .calendar-clock-wrapper {
       display: flex;
-justify-content: flex-end; /* لتحريك العناصر إلى أقصى اليمين أفقياً */      align-items: left;
- margin: 0; /* إزالة أي هامش خارجي */
-      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
       flex-wrap: wrap;
     }
 
@@ -70,6 +59,16 @@ justify-content: flex-end; /* لتحريك العناصر إلى أقصى الي
       transform: translate(-50%, -50%);
     }
 
+    /* QR Code */
+    .qr-code {
+      width: 130px;
+      height: 130px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background: white;
+      padding: 10px;
+    }
+
     #calendar {
       padding: 0.6rem 1rem;
       font-size: 1rem;
@@ -77,8 +76,45 @@ justify-content: flex-end; /* لتحريك العناصر إلى أقصى الي
       border: 2px solid #0077b6;
       outline: none;
     }
-<meta name="google-site-verification" content="Y9mt7d-fbfMrCfdr3MBnAXQSAckdox_7Zfbvk4P6Ro8" />
-</style>
+
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      background: linear-gradient(rgba(0, 0, 255, 0.7), rgba(0,255,255,0.4)),
+                  url('assets/images/hero-bg.jpg') center/cover no-repeat;
+      text-align: center;
+      color: blue;
+      overflow: hidden;
+    }
+
+    .hero-logo-wrapper {
+      background: white;
+      border-radius: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    .hero-logo-img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+      border-radius: 100%;
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero-logo-img { width: 150px; height: 150px; }
+      .qr-code { width: 100px; height: 100px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -86,169 +122,79 @@ justify-content: flex-end; /* لتحريك العناصر إلى أقصى الي
 <!-- شريط الإعلان -->
 <section class="announcement-bar">
   <div class="container">
-
     <p> 🔔 مع تمنياتنا للجميع بالصحة والعافية، المركز يقدم خدمة التأمين الصحي و قريبًا تشغيل جهاز الرنين المغناطيسي الجديد 🔔 </p>
-
   </div>
 </section>
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="assets/images/kadc.gif" alt="شعار المركز" class="logo-img">
-        <div class="logo-text">
-          <h1>المركز التشخيصي المتطور</h1>
-          <p>ولاية كسلا</p>
 
-        </div>
- 
- <div class="hero-date" id="today-date"></div>
-
- </div>
-
-      <nav class="navbar" id="navbar">
-        <a href="index.html" class="active">الرئيسية</a>
-        <a href="about.html">عن المركز</a>
-        <a href="services.html">الخدمات</a>
-        <a href="gallery.html">المعرض</a>
-        <a href="kadc_loc.html">الموقع</a>
-        <a href="contact.html">اتصل بنا</a>
-      </nav>
-      <button class="menu-btn" id="menu-btn">☰</button>
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/kadc.gif" alt="شعار المركز" class="logo-img">
+      <div class="logo-text">
+        <h1>المركز التشخيصي المتطور</h1>
+        <p>ولاية كسلا</p>
+      </div>
+      <div class="hero-date" id="today-date"></div>
     </div>
-  </header>
 
-  <!-- الهيرو + السلايدر -->
-  <section class="hero">
-    <div class="hero-content">
-
-  <div class="hero-date" id="today-date"></div>
-
-  <div class="hero-logo-wrapper">
-   
- <img src="assets/images/kadc.gif" alt="شعار المركز" class="hero-logo-img">
-
-</div>
-  <!-- الساعة والتقويم -->
-
-  <section class="calendar-section">
-        <div class="calendar-clock-wrapper">
-      <div class="clock" id="clock">
-        <div class="hand hour" id="hour"></div>
-        <div class="hand minute" id="minute"></div>
-        <div class="hand second" id="second"></div>
-        <div class="left"></div>
-<span style="visibility: hidden;">◻️</span>
-<span style="visibility: hidden;">◻️</span>
-<span style="visibility: hidden;">◻️</span>
-<span style="visibility: hidden;">◻️</span>
-
-
-                                  المركز التشخيصي المتطور  
-
-</div>
- </div>
-    </div>
- </div>
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="active">الرئيسية</a>
+      <a href="about.html">عن المركز</a>
+      <a href="services.html">الخدمات</a>
+      <a href="gallery.html">المعرض</a>
+      <a href="kadc_loc.html">الموقع</a>
+      <a href="contact.html">اتصل بنا</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn">☰</button>
   </div>
-</div>
- </div>
+</header>
+
+<!-- الهيرو -->
+<section class="hero">
   <div class="hero-content">
-    <h1>المركز التشخيصي المتطور       🩻         نحو رعاية صحية دقيقة ومتطورة              </h1>
+    <div class="hero-logo-wrapper">
+      <img src="assets/images/kadc.gif" alt="شعار المركز" class="hero-logo-img">
+    </div>
 
+    <!-- الساعة + QR -->
+    <section class="calendar-section">
+      <div class="calendar-clock-wrapper">
+        <!-- QR كود -->
+        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ahaaad200000-sketch.github.io/kadc/" alt="QR كود الموقع">
 
- <p>المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل بأحدث الأجهزة وأفضل الكوادر الطبية تحت ادارة رشيدة تسعي دوما للتطوير واهتمام متعاظم من السلطات المحلية والمركزية .</p>
+        <!-- الساعة -->
+        <div class="clock" id="clock">
+          <div class="hand hour" id="hour"></div>
+          <div class="hand minute" id="minute"></div>
+          <div class="hand second" id="second"></div>
+          <div class="center"></div>
+        </div>
+      </div>
+    </section>
 
-
-   <section class="calendar-section">
-
-  </div>
-
-<style>
-
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  background: linear-gradient(rgba(0, 0, 255, 0.7), rgba(0,255,255,0.4)),
-              url('assets/images/hero-bg.jpg') center/cover no-repeat;
-  text-align: center;
-  color: blue;
-  overflow: hidden;
-}
-
-/* غلاف الشعار */
-.hero-logo-wrapper {
-  background: white;
-  border-radius: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
-  margin-bottom: 1rem;
-}
-
-/* الشعار نفسه */
-.hero-logo-img {
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
-  border-radius: 100%;
-  background: white;
-}
-
-/* تحسين العرض في الموبايل */
-@media (max-width: 768px) {
-  .hero-logo-img {
-    width: 100px;
-    height: 100px;
-  }
-  .hero-logo-wrapper {
-    padding: 10px;
-  }
-}
-
-  .date-display {
-    text-align: left; /* يجعل النص داخل العنصر محاذياً لليسار */
-    float: left; /* يحرك العنصر نفسه إلى اليسار */
-    margin-left: 0; /* يزيل أي مسافة إضافية من اليسار */
- margin-top: 200px; /* يضيف هامشاً علوياً بمقدار 10px (يمكنك تغيير القيمة حسب الحاجة) */
- }
-</style>
-   
-</div>
-
-
- 
-
+    <h1>المركز التشخيصي المتطور 🩻 نحو رعاية صحية دقيقة ومتطورة</h1>
+    <p>المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل بأحدث الأجهزة وأفضل الكوادر الطبية.</p>
   </div>
 </section>
 
-    </div>
-
-
-<!-- المميزات -->
+<!-- بقية الصفحة كما هي -->
 <section class="features container" style="margin: 3rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-  
-  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-    <h3 style="margin-bottom: 0.8rem; font-size: 1.4rem;">أجهزة حديثة</h3>
-    <p style="font-size: 1rem; line-height: 1.8;">أحدث أجهزة الأشعة والتحاليل الدقيقة لتشخيص موثوق وسريع.</p>
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>أجهزة حديثة</h3>
+    <p>أحدث أجهزة الأشعة والتحاليل الدقيقة لتشخيص موثوق وسريع.</p>
   </div>
 
-  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-    <h3 style="margin-bottom: 0.8rem; font-size: 1.4rem;">فريق متخصص</h3>
-    <p style="font-size: 1rem; line-height: 1.8;">أطباء وفنيون ذوو خبرة عالية في مجالات التشخيص الطبي.</p>
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>فريق متخصص</h3>
+    <p>أطباء وفنيون ذوو خبرة عالية في مجالات التشخيص الطبي.</p>
   </div>
 
-  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-    <h3 style="margin-bottom: 0.8rem; font-size: 1.4rem;">دقة وسرعة</h3>
-    <p style="font-size: 1rem; line-height: 1.8;">نتائج دقيقة في أقل وقت ممكن مع عناية خاصة بالمرضى.</p>
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>دقة وسرعة</h3>
+    <p>نتائج دقيقة في أقل وقت ممكن مع عناية خاصة بالمرضى.</p>
+
   </div>
 
-   
   </section>
 
   <!-- عن المركز -->
@@ -260,57 +206,37 @@ justify-content: flex-end; /* لتحريك العناصر إلى أقصى الي
     </div>
   </section>
 
-  <!-- الفوتر -->
-  <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
-    </div>
-  </footer>
+</section>
 
-  <!-- JS -->
-  <script src="assets/js/script.js"></script>
- 
- <script>
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
+  </div>
+</footer>
+
+<script>
 function updateClock() {
   const now = new Date();
   const hourDeg = ((now.getHours() % 12) + now.getMinutes()/60) * 30;
   const minuteDeg = (now.getMinutes() + now.getSeconds()/60) * 6;
   const secondDeg = now.getSeconds() * 6;
-
   document.getElementById('hour').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
   document.getElementById('minute').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
   document.getElementById('second').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
 }
 
-// دالة عرض التاريخ
 function updateDate() {
   const today = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = today.toLocaleDateString('ar-EG', options);
-  document.getElementById('today-date').textContent = formattedDate;
+  document.getElementById('today-date').textContent = today.toLocaleDateString('ar-EG', options);
 }
 
 setInterval(updateClock, 1000);
 updateClock();
 updateDate();
 
-    // الساعة
-    function updateClock() {
-      const now = new Date();
-      const hourDeg = ((now.getHours() % 12) + now.getMinutes()/60) * 30;
-      const minuteDeg = (now.getMinutes() + now.getSeconds()/60) * 6;
-      const secondDeg = now.getSeconds() * 6;
-
-      document.getElementById('hour').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
-      document.getElementById('minute').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
-      document.getElementById('second').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // السنه بالفوتر
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
