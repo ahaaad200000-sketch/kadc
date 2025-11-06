@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المركز التشخيصي المتطور - ولاية كسلا</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ======= إضافات الساعة والتقويم ======= */
+    .calendar-section {
+      background: #fff;
+      padding: 1.5rem;
+      margin: 5rem auto;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .calendar-clock-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .clock {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      border: 5px solid #0077b6;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock .hand {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: translateX(-50%) rotate(0deg);
+      border-radius: 4px;
+    }
+
+    .hand.hour { width: 6px; height: 40px; background: #0077b6; }
+    .hand.minute { width: 4px; height: 60px; background: #0096c7; }
+    .hand.second { width: 2px; height: 70px; background: #ff595e; }
+
+    .clock .center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #0077b6;
+      border-radius: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* QR Code */
+    .qr-code {
+      width: 130px;
+      height: 130px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background: white;
+      padding: 10px;
+    }
+
+    #calendar {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #0077b6;
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      background: linear-gradient(rgba(0, 0, 255, 0.7), rgba(0,255,255,0.4)),
+                  url('assets/images/hero-bg.jpg') center/cover no-repeat;
+      text-align: center;
+      color: blue;
+      overflow: hidden;
+    }
+
+    .hero-logo-wrapper {
+      background: white;
+      border-radius: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    .hero-logo-img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+      border-radius: 100%;
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero-logo-img { width: 150px; height: 150px; }
+      .qr-code { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- شريط الإعلان -->
+<section class="announcement-bar">
+  <div class="container">
+    <p> 🔔 مع تمنياتنا للجميع بالصحة والعافية، المركز يقدم خدمة التأمين الصحي و قريبًا تشغيل جهاز الرنين المغناطيسي الجديد 🔔 </p>
+  </div>
+</section>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/kadc.gif" alt="شعار المركز" class="logo-img">
+      <div class="logo-text">
+        <h1>المركز التشخيصي المتطور</h1>
+        <p>ولاية كسلا</p>
+      </div>
+      <div class="hero-date" id="today-date"></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="active">الرئيسية</a>
+      <a href="about.html">عن المركز</a>
+      <a href="services.html">الخدمات</a>
+      <a href="gallery.html">المعرض</a>
+      <a href="kadc_loc.html">الموقع</a>
+      <a href="contact.html">اتصل بنا</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn">☰</button>
+  </div>
+</header>
+
+<!-- الهيرو -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-logo-wrapper">
+      <img src="assets/images/kadc.gif" alt="شعار المركز" class="hero-logo-img">
+    </div>
+
+    <!-- الساعة + QR -->
+    <section class="calendar-section">
+      <div class="calendar-clock-wrapper">
+        <!-- QR كود -->
+        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ahaaad200000-sketch.github.io/kadc/" alt="QR كود الموقع">
+
+        <!-- الساعة -->
+        <div class="clock" id="clock">
+          <div class="hand hour" id="hour"></div>
+          <div class="hand minute" id="minute"></div>
+          <div class="hand second" id="second"></div>
+          <div class="center"></div>
+        </div>
+      </div>
+    </section>
+
+    <h1>المركز التشخيصي المتطور 🩻 نحو رعاية صحية دقيقة ومتطورة</h1>
+    <p>المركز التشخيصي المتطور بولاية كسلا يقدم خدمات الأشعة والتحاليل بأحدث الأجهزة وأفضل الكوادر الطبية.</p>
+  </div>
+</section>
+
+<!-- بقية الصفحة كما هي -->
+<section class="features container" style="margin: 3rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>أجهزة حديثة</h3>
+    <p>أحدث أجهزة الأشعة والتحاليل الدقيقة لتشخيص موثوق وسريع.</p>
+  </div>
+
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>فريق متخصص</h3>
+    <p>أطباء وفنيون ذوو خبرة عالية في مجالات التشخيص الطبي.</p>
+  </div>
+
+  <div class="feature-card" style="background: linear-gradient(135deg, #0077b6, #0096c7); color: white; padding: 1.5rem; border-radius: 15px; text-align: center;">
+    <h3>دقة وسرعة</h3>
+    <p>نتائج دقيقة في أقل وقت ممكن مع عناية خاصة بالمرضى.</p>
+
+  </div>
+
+  </section>
+
+  <!-- عن المركز -->
+  <section class="about-preview">
+    <div class="container">
+      <h2>من نحن</h2>
+      <p>نحن مركز متخصص في الخدمات التشخيصية الحديثة بولاية كسلا، نعمل على تقديم تجربة طبية متميزة بأعلى معايير الجودة.</p>
+      <a href="about.html" class="btn-outline">تعرف أكثر</a>
+    </div>
+  </section>
+
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> المركز التشخيصي المتطور - ولاية كسلا</p>
+  </div>
+</footer>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const hourDeg = ((now.getHours() % 12) + now.getMinutes()/60) * 30;
+  const minuteDeg = (now.getMinutes() + now.getSeconds()/60) * 6;
+  const secondDeg = now.getSeconds() * 6;
+  document.getElementById('hour').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+  document.getElementById('minute').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+  document.getElementById('second').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+}
+
+function updateDate() {
+  const today = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('today-date').textContent = today.toLocaleDateString('ar-EG', options);
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+updateDate();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
